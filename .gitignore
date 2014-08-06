@@ -4,5 +4,6 @@ phpssosso_server/uploadfile
 uploadfile
 news
 html
+*.bak
 .project
 phpcms/languages

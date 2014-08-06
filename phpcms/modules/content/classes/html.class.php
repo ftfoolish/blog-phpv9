@@ -316,7 +316,8 @@ class html {
 	 */
 	public function index() {
 		if($this->siteid==1) {
-			$file = PHPCMS_PATH.'index.html';
+			//$file = PHPCMS_PATH.'index.html';
+			$file = PHPCMS_PATH.'/news/index.html';
 			//添加到发布点队列
 			$this->queue->add_queue('edit','/index.html',$this->siteid);
 		} else {
