@@ -38,53 +38,34 @@ class index {
 		include template('ln','new');
 	}
 	
-	//关于我们
-	public function about() {
-		$SEO = seo(1,18);
-		$catid = isset($_GET['catid'])?trim(intval($_GET['catid'])):'';
-		
-		$catid = $catid?$catid:'18';
-		
-		$page_db = pc_base::load_model('page_model');
-		$r = $page_db->get_one(array('catid'=>$catid));
-		include template('umx','about');
-	}
-	
-	//联系我们
-	public function contact() {
-		$SEO = seo(1,19);
-		$catid = isset($_GET['catid']) ? trim(intval($_GET['catid'])):'';
-	
-		$catid = $catid ? $catid:'19';
-	
-		$page_db = pc_base::load_model('page_model');
-		$r = $page_db->get_one(array('catid'=>$catid));
-		include template('umx','contact');
-	}
-	
-	//业务需求
-	public function msg(){
-		$demand_db = pc_base::load_model('demand_model');
-		$this->_session_start();
-		if ($_SESSION['code'] != strtolower($_POST['code']) || empty($_SESSION['code'])) {
-			exit('0');
-		} else {
-			$_SESSION['code'] = '';
+//资讯详情
+	public function detail() {
+		$sites = getcache('sitelist', 'commons');
+		$catid = 9;
+		$id = isset($_GET['id']) ? trim($_GET['id']):'';
+		if(!$id || !intval($id)){
+			showmessage('参数错误',HTTP_REFERER);
 		}
-		$info = array(
-			'name' => trim($_POST['name']),
-			'mobile' => trim($_POST['phone']),
-			'email' => trim($_POST['email']),
-			'content' => trim($_POST['content']),
-			'inputtime' => SYS_TIME, 
-    		'ip' => ip(), 
-		);
-		$id = $demand_db->insert($info);
-		if ($id) {
-			exit('1');
-		} else {
-			exit('-1');
+		$pre = $this->db->db_tablepre;
+		$where = ' WHERE n.id='.$id;
+		$sql = 'SELECT n.*, nd.content FROM ' .$pre. 'news n LEFT JOIN ' .$pre. 'news_data nd ON n.id=nd.id' .$where;
+		$res = $this->db->query($sql);
+		$newsinfo = $this->db->fetch_next();
+		if(empty($newsinfo)){
+			$SEO['title'] = '404错误-老牛笔记';
+			$SEO['keyword'] = '404,404错误,老牛笔记';
+			$SEO['description'] = '404错误,您要查看的网址可能已被删、名称已被更改，或者暂时不可用';
+			include template('ln','404');exit;
 		}
+		
+		$cat_db = pc_base::load_model('category_model');
+		$catinfo = $cat_db->get_one(array('catid'=>$newsinfo['catid']),'catname,url');
+		
+		$SEO['title'] = $newsinfo['title'].'-'.$sites[1]['site_title'];
+		$SEO['keyword'] = $newsinfo['keywords'];
+		$SEO['description'] = $newsinfo['description'];
+		
+		include template('ln','new_detail');
 	}
 	
 	private function _session_start() {

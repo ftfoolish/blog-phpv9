@@ -4,7 +4,7 @@
     <div class="container wrap-new">
     <div class="new-tit">
         <h1>{$newsinfo['title']}</h1>
-        <p><span class="author">作者：{if $newsinfo['author']}{$newsinfo['author']}{else}优美迅{/if}</span><span class="time">发表于：{date('Y-m-d',$newsinfo['inputtime'])}</span></p>
+        <p><span class="author">作者：{if $newsinfo['author']}{$newsinfo['author']}{else}老牛{/if}</span><span class="time">发表于：{date('Y-m-d',$newsinfo['inputtime'])}</span></p>
     </div>
      <div class="new-page">
         <div class="new-page-m">
@@ -16,7 +16,6 @@
     </div>
     </div>
 </div>
-{template 'common', 'foot'}
 <script type="text/javascript">
     $(function(){
         $('#header').fixedNav();
