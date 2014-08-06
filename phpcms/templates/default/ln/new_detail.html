@@ -1,0 +1,26 @@
+{template 'common', 'head'}
+<link rel="stylesheet" href="{APP_PATH}statics/web/css/new.css">
+<div id="new" class="mt140">
+    <div class="container wrap-new">
+    <div class="new-tit">
+        <h1>{$newsinfo['title']}</h1>
+        <p><span class="author">作者：{if $newsinfo['author']}{$newsinfo['author']}{else}优美迅{/if}</span><span class="time">发表于：{date('Y-m-d',$newsinfo['inputtime'])}</span></p>
+    </div>
+     <div class="new-page">
+        <div class="new-page-m">
+            {$newsinfo['content']}
+        </div>
+     </div>
+    <div class="new-go">
+        <a href="javascript:history.go(-1);" class="new-btn">返回</a>
+    </div>
+    </div>
+</div>
+{template 'common', 'foot'}
+<script type="text/javascript">
+    $(function(){
+        $('#header').fixedNav();
+    });
+</script>
+</body>
+</html>

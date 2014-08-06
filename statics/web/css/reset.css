@@ -1,0 +1,61 @@
+html, body, div, p, span, strong, em, a, i,dl, dt, dd, small, ol, ul, li, h1, h2, h3, h4, h5, h6, img, input,
+textarea, table, tr, td { margin: 0; padding: 0;}
+body { background: #fff; min-width: 1000px; font: 12px/18px "\5FAE\8F6F\96C5\9ED1",Arial, Helvetica, sans-serif, "宋体"; overflow-x: hidden;}
+body a, input, button,textarea {outline:none;blr:expression(this.onFocus=this.blur());}
+ol, ul, li { list-style: none;}
+img,input { vertical-align: middle}
+a { color: #333; text-decoration: none;}
+a:hover { text-decoration: none; color: #00a2e9;}
+h1, h2, h3, h4, h5, h6 { font-size: 100%;}
+em { font-style: normal;}
+img { border: 0 none;}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+}
+::selection {
+    background:#00a2e9;
+	color:#fff;
+}
+::-moz-selection {
+    background:#00a2e9;
+	color:#fff;
+}
+::-webkit-selection {
+    background:#00a2e9;
+	color:#fff;
+}
+.btn:hover {
+    cursor: pointer;
+}
+.container { width: 1200px; margin: 0 auto;}
+.date:after, .row:after, .container:after, .clear:after, .hd:after, .bd:after, .mod:after {
+    display: block;
+    height: 0;
+    clear: both;
+    content: " ";
+}
+.date, .row, .container, .clear, .hd, .bd, .mod {zoom: 1;}
+
+.arrow{display:block;width:0;height:0;overflow:hidden;border-width:5px;border-style:solid; border-color: transparent;*zoom:1}
+.arrowR{border-left-color:#c7c4c4;border-right-width:0}
+.arrowL{border-right-color:#f60;border-left-width:0}
+.arrowT{border-bottom-color:#f60;border-top-width:0}
+.arrowB{border-top-color:#f60;border-bottom-width:0}
+
+.table tr th, .table tr td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px 0;
+}
+.table tr th {
+    background: #eee;
+}
+.line {
+    height: 0px;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid #ccc;
+}

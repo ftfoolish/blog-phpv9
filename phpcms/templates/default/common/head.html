@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <link rel="shortcut icon" type="image/x-icon" href="{APP_PATH}favicon.png"/>
+    <link rel="bookmark" type="image/x-icon" href="{APP_PATH}favicon.png"/>
+    <!--<link rel="stylesheet" href="{APP_PATH}statics/web/css/style.css"/>-->
+    <script>
+        <!--
+        document.write(unescape("%3C%73%63%72%69%70%74%3E%0A%20%20%20%20%20%20%20%20%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%6C%6E%28%22%3C%6C%69%6E%6B%20%72%65%6C%3D%5C%22%73%74%79%6C%65%73%68%65%65%74%5C%22%20%68%72%65%66%3D%5C%22%2F%73%74%61%74%69%63%73%2F%77%65%62%2F%63%73%73%2F%73%74%79%6C%65%2E%63%73%73%5C%22%2F%3E%22%29%3B%0A%20%20%20%20%3C%2F%73%63%72%69%70%74%3E"));
+        //-->
+    </script>
+    <script src="{APP_PATH}statics/web/js/jquery.js"></script>
+    <!--<script type="text/javascript" src="{APP_PATH}statics/web/js/umxTool.js"></script>-->
+    <script>
+        <!--
+        document.write(unescape("%3C%73%63%72%69%70%74%20%74%79%70%65%3D%22%74%65%78%74%2F%6A%61%76%61%73%63%72%69%70%74%22%20%73%72%63%3D%22%2F%73%74%61%74%69%63%73%2F%77%65%62%2F%6A%73%2F%75%6D%78%54%6F%6F%6C%2E%6A%73%22%3E%3C%2F%73%63%72%69%70%74%3E"));
+        //-->
+    </script>
+</head>
+<body>
+    <!--头部-->
+    <div id="header" class="header-fix">
+        <div class="head-top">
+            <div class="container">
+
+            </div>
+        </div>
+        <div class="head-cont container">
+            <div class="logo">
+                <strong><a href="{siteurl($siteid)}"><img src="{APP_PATH}statics/web/images/logo.png" alt="优美迅"/></a></strong>
+            </div>
+            <div class="nav" id="menu">
+                <ul class="clear">
+                <li><a href="/"{if $catid==26} class="current"{/if}><div><p><span>HOME</span><em>老牛</em></p></div></a></li>
+                <!-- <li><a href="/about.html"{if $catid==18} class="current"{/if}><div><p><span>ABOUT</span><em>关于老牛</em></p></div></a></li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--头部 end / -->

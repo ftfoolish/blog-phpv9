@@ -1,0 +1,70 @@
+{template 'common', 'head'}
+<link rel="stylesheet" href="{APP_PATH}statics/web/css/new.css">
+<div id="new" class="mt140">
+    <!-- 新闻栏目 -->
+    <div class="container new-head">
+        <div class="hd">
+            <strong>老牛吃嫩草</strong>
+            <div class="bor-bton"></div>
+        </div>
+        <div class="bd">
+            <ul class="navNew">
+            	{loop $catchild $val}
+                <li><a href="{$val['url']}" {if $catid == $val['catid']}class="on"{/if}>{$val['catname']}</a></li>
+                {/loop}                            
+            </ul>
+        </div>
+    </div>
+    <!-- 新闻栏目 end / -->
+     <div class="container new-wrap">
+         <div class="new-main clear">
+             <ul class="clear">
+                 {loop $newsinfo $k $v}
+                 <li class="new-item">
+                     <div class="new-con">
+                         <div class="new-pic">
+                             <a href="{$v['url']}"><img src="{if $v['thumb']}{$v['thumb']}{else}{APP_PATH}statics/web/images/umx-default.jpg{/if}
+" width="360" height="259" alt="{$v['title']}"/></a>
+                             <h2 class="title">{$v['title']}</h2>
+                         </div>
+                         <div class="new-text">
+                             <a class="new-textcon" href="{APP_PATH}news/detail-{$v['id']}.html">
+                                 <h2 class="title">{$v['title']}</h2>
+                                 <p class="des">{$v['description']}</p>
+                                 <i class="icon-cir"></i>
+                             </a>
+                         </div>
+                     </div>
+                 </li>
+                 {/loop}
+             </ul>
+             <!-- 分页 -->
+             <div class="container page-wrap">
+                 <div class="r-pages">
+
+                 </div>
+                 <div id="pages" class="pages">{$pages}<!-- <a class="a1">514条</a> <a href="" class="a1">上一页</a> <span>1</span> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> ..<a href="">26</a> <a href="" class="a1">下一页</a> --></div>
+             </div>
+             <!-- 分页 end / -->
+         </div>
+     </div>
+
+</div>
+    <script type="text/javascript">
+        $(function(){
+            $('#header').fixedNav();
+        });
+    </script>
+    <script>
+        $(function(){
+          $('.new-main').find('li').hover(function(){
+              $(this).addClass('item-hover');
+              $(this).find('.new-pic h2').animate({opacity: '0'},1000);
+          },function(){
+              $(this).removeClass('item-hover');
+              $(this).find('.new-pic h2').animate({opacity: '1'},1000);
+          })
+        })
+    </script>
+</body>
+</html>

@@ -226,6 +226,15 @@ class model {
 	}
 	
 	/**
+	 * 单行的返回数据结果
+	 * @param $query （mysql_query返回值）
+	 * @return array
+	 */
+	final public function fetch_next() {
+		return $this->db->fetch_next();
+	}
+	
+	/**
 	 * 返回数据库版本号
 	 */
 	final public function version() {

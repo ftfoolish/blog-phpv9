@@ -1,0 +1,355 @@
+{template 'common', 'head_index'}
+<link rel="stylesheet" href="{APP_PATH}statics/web/css/settings-index.min.css"/>
+<script src="{APP_PATH}statics/web/js/jquery.themepunch.plugins.min.js"></script>
+<script src="{APP_PATH}statics/web/js/jquery.themepunch.revolution.min.js"></script>
+<script>
+    $(document).ready(function() {
+        if ($.fn.cssOriginal != undefined) $.fn.css = $.fn.cssOriginal;
+        $('.wide-banner').revolution({
+            delay: 7000,
+            startheight: 500,
+            startwidth: 1000,
+            hideThumbs: 200,
+            thumbWidth: 100,
+            // Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
+            thumbHeight: 50,
+            thumbAmount: 5,
+            navigationType: "bullet",
+            // bullet, thumb, none
+            navigationArrows: "verticalcentered",
+            // nexttobullets, solo (old name verticalcentered), none
+            navigationStyle: "round",
+            // round,square,navbar,round-old,square-old,navbar-old, or any from the list in the docu (choose between 50+ different item), custom
+            navigationHAlign: "center",
+            // Vertical Align top,center,bottom
+            navigationVAlign: "bottom",
+            // Horizontal Align left,center,right
+            navigationHOffset: 0,
+            navigationVOffset: 20,
+            soloArrowLeftHalign: "left",
+            soloArrowLeftValign: "center",
+            soloArrowLeftHOffset: 20,
+            soloArrowLeftVOffset: 0,
+            soloArrowRightHalign: "right",
+            soloArrowRightValign: "center",
+            soloArrowRightHOffset: 20,
+            soloArrowRightVOffset: 0,
+            touchenabled: "on",
+            // Enable Swipe Function : on/off
+            onHoverStop: "on",
+            // Stop Banner Timet at Hover on Slide on/off
+            stopAtSlide: -1,
+            // Stop Timer if Slide "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
+            stopAfterLoops: -1,
+            // Stop Timer if All slides has been played "x" times. IT will stop at THe slide which is defined via stopAtSlide:x, if set to -1 slide never stop automatic
+            hideCaptionAtLimit: 0,
+            // It Defines if a caption should be shown under a Screen Resolution ( Basod on The Width of Browser)
+            hideAllCaptionAtLilmit: 0,
+            // Hide all The Captions if Width of Browser is less then this value
+            hideSliderAtLimit: 0,
+            // Hide the whole slider, and stop also functions if Width of Browser is less than this value
+            shadow: 0,
+            //0 = no Shadow, 1,2,3 = 3 Different Art of Shadows  (No Shadow in Fullwidth Version !)
+            fullWidth: "on" // Turns On or Off the Fullwidth Image Centering in FullWidth Modus
+        })
+        var bAnimateStop = 1;
+        $(window).scroll(function(){
+
+            if(clientShow ('.h-service')){
+                $('.h-service .bd .service-list li').addClass('animation');
+            }
+            if(clientShow('.move-mod') && bAnimateStop === 1){
+                $('.case-slider').umxCaseSlider();
+                bAnimateStop = 2;
+            }
+            if(clientShow('.h-mission')){
+                $('.h-mission .bd').addClass('scale-animate');
+            }
+        });
+        $('#header').fixedNav();
+        $('.h-client .bd').scrollSlider();
+    });
+</script>
+<!--banner-->
+    <div class="wide-bannercontainer mt140 revolution">
+        <div class="wide-banner">
+        	<ul>
+	            <li data-transition="fade">
+	                    <img src="{APP_PATH}statics/web/images/banner_1_bg.jpg" alt="umeixun intereace design" />
+	                    <div class="caption sfl" data-x="10" data-y="155" data-speed="800" data-start="1200" data-easing="easeOutExpo">
+	                        <img src="{APP_PATH}statics/web/images/banner_1_1.png" alt="专业品牌网站建设-优美迅(www.umeixun.com)" />
+	                    </div>
+	                    <div class="caption sfb" data-x="10" data-y="215" data-speed="800" data-start="100" data-easing="easeOutExpo">
+	                        <img src="{APP_PATH}statics/web/images/banner_1_2.png" alt="紧跟网络时代的发展潮流" />
+	                    </div>
+	                    <div class="caption sfl" data-x="10" data-y="305" data-start="800" data-easing="easeOutExpo">
+	                        <img src="{APP_PATH}statics/web/images/banner_1_3.png" alt="案例屏幕显示" />
+	                    </div>
+	                    <div class="caption sfl" data-x="700" data-y="100" data-start="800" data-easing="easeOutExpo">
+	                        <img src="{APP_PATH}statics/web/images/banner_1_4.png" alt="优美迅(www.umeixun.com)banner图" />
+	                    </div>
+	                </li>
+	                <li data-transition="fade">
+	                    <img src="{APP_PATH}statics/web/images/banner_2_bg.jpg" alt="企业建站首选-背景图" />
+	                    <div class="caption sfl" data-x="-50" data-y="92" data-speed="300" data-start="200" data-easing="easeOutSine">
+	                        <img src="{APP_PATH}statics/web/images/banner_2_1.png" alt="企业建站首选-优美迅" />
+	                    </div>
+	                    <div class="caption lfr" data-x="-50" data-y="179" data-speed="500" data-start="400" data-easing="easeOutSine">
+	                        <img src="{APP_PATH}statics/web/images/banner_2_2.png" alt="全网营销型网站"  />
+	                    </div>
+	                    <div class="caption lfb" data-x="-50" data-y="315" data-speed="700" data-start="1000" data-easing="easeOutExpo">
+	                        <img src="{APP_PATH}statics/web/images/banner_2_3.png" alt="PC网站+手机wap+手机客户端一个都不能少" />
+	                    </div>
+	                </li>
+	                <li data-transition="fade">
+	                    <img src="{APP_PATH}statics/web/images/banner_3_bg.jpg" alt="优美迅介绍第三个背景图" />
+	                    <div class="caption sfl" data-x="0" data-y="125" data-speed="300" data-start="200" data-easing="easeOutSine">
+	                        <img src="{APP_PATH}statics/web/images/banner_3_1.png" alt="专业网站建设服务机构" />
+	                    </div>
+	                    <div class="caption lfr" data-x="0" data-y="159" data-speed="500" data-start="400" data-easing="easeOutSine">
+	                        <img src="{APP_PATH}statics/web/images/banner_3_2.png" alt="客户的认可是我们不断创新的动力"  />
+	                    </div>
+	                    <div class="caption lfb" data-x="0" data-y="225" data-speed="700" data-start="1000" data-easing="easeOutExpo">
+	                        <img src="{APP_PATH}statics/web/images/banner_3_3.png" alt="紧贴移动互联网的发展-创新最有价值的服务项目" />
+	                    </div>
+	                </li>    
+        		</ul>
+        <div class="tp-bannertimer tp-bottom"></div>
+    </div>
+    </div>
+    <!--banner end / -->
+    <!--服务顶目-->
+    <div class="container h-service">
+        <div class="hd">
+            <strong>服务顶目</strong>
+            <div class="bor-bton"></div>
+        </div>
+        <div class="bd">
+            <ul class="service-list">
+                <li>
+                    <div class="mod">
+                        <i class="icon i1"></i>
+                        <strong>网站开发及设计</strong>
+                        <p>为客户提供专业、品牌化网站页面设计、网站策划、网站建设与研发等</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="mod">
+                        <i class="icon i2"></i>
+                        <strong>软件界面设计</strong>
+                        <p>为WINDOWS/MAC OS /LINUX等定制品牌专业性的软界面设计</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="mod">
+                        <i class="icon i3"></i>
+                        <strong>移动设备界面设计</strong>
+                        <p>为平板电脑、手机、家电设备、车载系统等移动终端提供完善的品牌化用户页面设计</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="mod">
+                        <i class="icon i4"></i>
+                        <strong>图标设计</strong>
+                        <p>应用于手机、平板电脑、移动设备等软件图标、界面图标、系统图标设计方案</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--服务顶目 end / -->
+    <!--案例展示-->
+    <div class="h-case">
+        <div class="hd">
+            <strong>案例展示</strong>
+            <div class="bor-bton"></div>
+        </div>
+        <div class="container bd case-slider">
+            <div class="move-mod clear">
+                <ul class="case-list">
+                    {loop $result $k $v}
+                    <li>
+                        <a href="{APP_PATH}case/detail-{$v['id']}.html" target="_blank">
+                            <img src="{thumb($v['data']['thumb'],266,163)}" alt="{$v['data']['title']}"/>
+                            <strong>{mb_substr($v['data']['title'],0,12,CHARSET)}</strong>
+                            <span>{mb_substr($v['data']['description'],0,22,CHARSET)}</span>
+                        </a>
+                        <div class="bg"></div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="mod b-mod">
+                <a href="/case.html" class="link-more" target="_blank">查看更多 + </a>
+                <span class="next">
+                    <em class="arrow arrowR"></em>
+                    <small class="arrow arrowR s-arrow"></small>
+                </span>
+                <span class="preve">
+                    <em class="arrow arrowL"></em>
+                    <small class="arrow arrowL l-s-arrow"></small>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--案例展示 end / -->
+    <!--工作流程-->
+    <div class="h-mission">
+        <div class="hd">
+            <strong>我们始终遵循一个过程</strong>
+            <div class="bor-bton"></div>
+        </div>
+        <div class="container bd">
+            <span class="s1">
+                <i class="icon s-animate"></i>
+                <em class="s1-user">用户沟通</em>
+            </span>
+            <span class="s2 ab">
+                <i class="icon"></i>
+                <em class="a2">功能需求</em>
+            </span>
+            <span class="s3 ab">
+                <i class="icon"></i>
+                <em class="a3">风格需求</em>
+            </span>
+            <span class="s4 ab">
+                <i class="icon"></i>
+                <em class="a4">需求评估</em>
+            </span>
+            <span class="s5 ab">
+                <i class="icon"></i>
+                <em class="a5">网站规划</em>
+            </span>
+            <span class="s6 ab">
+                <i class="icon"></i>
+                <em class="a6">UI规划</em>
+            </span>
+            <span class="s7 ab">
+                <i class="icon"></i>
+                <em class="a7">品牌形象&概念</em>
+            </span>
+            <span class="s8">
+                <i class="icon"></i>
+                <em>视觉表现</em>
+            </span>
+            <span class="s9">
+                <i class="icon"></i>
+                <em>用户体验</em>
+            </span>
+            <span class="s10 ab">
+                <i class="icon s-animate"></i>
+                <em class="a10 s2-user">视觉</em>
+            </span>
+            <span class="s11 ab">
+                <i class="icon"></i>
+                <em>前端开发</em>
+            </span>
+            <span class="s12 ab">
+                <i class="icon"></i>
+                <em>程序开发</em>
+            </span>
+            <span class="s13 ab">
+                <i class="icon"></i>
+                <em class="a7">DIV+CSS+JS FLASH AS+XML</em>
+            </span>
+            <span class="s14">
+                <i class="icon"></i>
+                <em>PHP</em>
+            </span>
+            <span class="s15 ab">
+                <i class="icon"></i>
+                <em class="a15">浏览器</em>
+            </span>
+            <span class="s16 ab">
+                <i class="icon"></i>
+                <em class="a7">兼容主流浏览器</em>
+            </span>
+            <span class="s17 ab">
+                <i class="icon s-animate"></i>
+                <em class="a17">完成</em>
+            </span>
+            <span class="s18 ab">
+                <i class="icon"></i>
+                <em class="a2 a18">上线</em>
+            </span>
+        </div>
+    </div>
+    <!--工作流程 end / -->
+    <!--关于 优美迅 动态-->
+    <div class="umeixun">
+        <div class="container">
+            <div class="mod-l"></div>
+            <div class="mod-r">
+                <!-- 首页关务我们碎片start -->
+                {pc:block pos="index_about"}{/pc}
+                <!-- 首页关务我们碎片end -->
+                <div class="h-news">
+                    <div class="hd">
+                        <strong>优美迅资讯</strong>
+                    </div>
+                    <div class="bd">
+                        <ul class="h-news-list">
+                        	<!-- 首页资讯推荐start -->
+                            {loop $newdatas $k $v}
+                            	<li><a href="{APP_PATH}news/detail-{$v['id']}.html" target="_blank">{$v['data']['title']}</a></li>
+                            {/loop}
+                            <!-- 首页资讯推荐end -->
+                        </ul>
+                        <a href="{APP_PATH}news.html" class="link-more" target="_blank">更多 &gt;&gt;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--关于 优美迅 动态 end / -->
+    <!--客户展示-->
+    <div class="container h-client">
+        <div class="hd">
+            <strong>客户展示</strong>
+            <div class="bor-bton"></div>
+        </div>
+        <div class="bd">
+            <div class="move-mod">
+                <ul class="h-client-list clear">
+                    <li><a href=""><img src="/uploadfile/link/link1.jpg" alt="中国移动"/></a></li>
+                    <li><a href=""><img src="/uploadfile/link/link2.jpg" alt="易车"/></a></li>
+					<li><a href=""><img src="/uploadfile/link/link3.jpg" alt="中国网络电视台"/></a></li>
+					<li><a href=""><img src="/uploadfile/link/link4.jpg" alt="唯品会"/></a></li>
+					<li><a href=""><img src="/uploadfile/link/link5.jpg" alt="苏宁互联"/></a></li>
+					<li><a href=""><img src="/uploadfile/link/link6.jpg" alt="央视影音"/></a></li>
+					<li><a href=""><img src="/uploadfile/link/link7.jpg" alt="太阳雨"/></a></li>
+					<li><a href=""><img src="/uploadfile/link/link8.jpg" alt="号百控股"/></a></li>
+					<li><a href=""><img src="/uploadfile/link/link9.jpg" alt="雨润集团"/></a></li>
+					<li><a href=""><img src="/uploadfile/link/link10.jpg" alt="雅客"/></a></li>
+                </ul>
+            </div>
+            <div class="mod b-mod">
+               <!-- <a href="" class="link-more">查看更多 + </a> -->
+                <span class="next">
+                    <em class="arrow arrowR"></em>
+                    <small class="arrow arrowR s-arrow"></small>
+                </span>
+                <span class="preve">
+                    <em class="arrow arrowL"></em>
+                    <small class="arrow arrowL l-s-arrow"></small>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--客户展示 end / -->
+<!-- link start-->
+<div id="link">
+    <div class="link-con">
+        <div>
+        <span>友情链接：</span>
+            <a href="http://www.sucaiweb.com/" target="_blank" title="素材库">素材库</a>
+            <a href="http://www.php900.com/" target="_blank" title="PHP乐享网">php乐享网</a>
+            <a href="http://www.umeixun.com/" target="_blank" title="广州网站建设">广州网站建设</a>
+            <a href="http://www.umeixun.com/service.html" target="_blank" title="网页设计">网页设计</a>
+        </div>
+    </div>
+</div>
+<!-- link end -->
+{template 'common', 'foot'}
+</body>
+</html>
