@@ -357,3 +357,5 @@ code {
     border:1px solid #00bae2;
     color:#fff;
 }
+/*多说左右边距调整*/
+#ds-thread  {padding:0px 55px;margin:30px;}
