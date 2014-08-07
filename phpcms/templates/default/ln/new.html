@@ -28,7 +28,7 @@
                              <h2 class="title">{$v['title']}</h2>
                          </div>
                          <div class="new-text">
-                             <a class="new-textcon" href="{APP_PATH}news/detail-{$v['id']}.html">
+                             <a class="new-textcon" href="{$v['url']}">
                                  <h2 class="title">{$v['title']}</h2>
                                  <p class="des">{$v['description']}</p>
                                  <i class="icon-cir"></i>
@@ -48,7 +48,7 @@
              <!-- 分页 end / -->
          </div>
      </div>
-
+{template 'common', 'foot'}
 </div>
     <script type="text/javascript">
         $(function(){

@@ -710,8 +710,8 @@ table {
 /*==========页脚==========*/
 .footer {
     width: 100%;
-    border-top: 10px solid #00a2e9;
-    background: #393e45;
+    /* border-top: 10px solid #00a2e9;
+    background: #393e45; */
 }
 .footer .container {
     position: relative;
@@ -792,8 +792,8 @@ table {
 .footer .copyright {
     width: 100%;
     height: 78px;
-    background: #2e3238;
-    line-height: 78px;
+    /* background: #2e3238; 
+    line-height: 78px;*/
 }
 .footer .copyright p {
     color: #6b6d70;
