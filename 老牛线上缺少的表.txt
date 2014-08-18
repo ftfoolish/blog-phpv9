@@ -1,0 +1,51 @@
+CREATE TABLE `ln_message` (
+  `messageid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `send_from_id` char(30) NOT NULL DEFAULT '0',
+  `send_to_id` char(30) NOT NULL DEFAULT '0',
+  `folder` enum('all','inbox','outbox') NOT NULL,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `message_time` int(10) unsigned NOT NULL DEFAULT '0',
+  `subject` char(80) DEFAULT NULL,
+  `content` text NOT NULL,
+  `replyid` int(10) unsigned NOT NULL DEFAULT '0',
+  `del_type` tinyint(1) unsigned DEFAULT '0',
+  PRIMARY KEY (`messageid`),
+  KEY `msgtoid` (`send_to_id`,`folder`),
+  KEY `replyid` (`replyid`),
+  KEY `folder` (`send_from_id`,`folder`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `ln_message_data` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `userid` mediumint(8) NOT NULL,
+  `group_message_id` int(5) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `message` (`userid`,`group_message_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `ln_message_group` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `typeid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `groupid` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT '用户组id',
+  `subject` char(80) DEFAULT NULL,
+  `content` text NOT NULL COMMENT '内容',
+  `inputtime` int(10) unsigned DEFAULT '0',
+  `status` tinyint(2) unsigned DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `ln_sms_report` (
+  `id` bigint(15) NOT NULL AUTO_INCREMENT,
+  `mobile` varchar(11) NOT NULL,
+  `posttime` int(10) unsigned NOT NULL DEFAULT '0',
+  `id_code` varchar(10) NOT NULL,
+  `msg` varchar(90) NOT NULL,
+  `send_userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(2) NOT NULL DEFAULT '0',
+  `return_id` varchar(30) NOT NULL,
+  `ip` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mobile` (`mobile`,`posttime`)
